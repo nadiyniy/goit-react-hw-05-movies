@@ -17,7 +17,7 @@ const Home = () => {
       .catch(err => {
         setError(err.message);
       });
-  }, []);
+  }, [setError]);
 
   return (
     <StyledWrapper>
