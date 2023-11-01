@@ -11,7 +11,6 @@ const Cast = () => {
   useEffect(() => {
     fetchMovieCast(id).then(res => {
       setCast(res.cast);
-      console.log(res.cast);
     });
   }, [id]);
   if (!cast) {

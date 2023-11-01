@@ -1,31 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import { FallingLines } from 'react-loader-spinner';
 import {
   Link,
   NavLink,
+  Navigate,
   Outlet,
   useLocation,
+  useNavigate,
+  // useNavigate,
   useParams,
 } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import styled from 'styled-components';
 
 const Movie = () => {
+  // const navigate = useNavigate();
   const location = useLocation();
   const goBackRef = useRef(location.state?.from || '/');
-  console.log(goBackRef);
 
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState('');
   const { id } = useParams();
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetchMovieById(id)
       .then(res => {
         setMovie(res);
-        console.log(res);
       })
-      .catch(console.error);
-  }, [id]);
+      .catch(err => {
+        navigate('/404');
+        setError(err.message);
+      });
+  }, [id, navigate]);
 
   if (!movie) {
     return (
@@ -46,6 +52,8 @@ const Movie = () => {
         />
       </div>
     );
+  }
+  if (error) {
   }
   return (
     <StyledWrapper>
@@ -84,7 +92,28 @@ const Movie = () => {
           <NavLink to="reviews">Reviews</NavLink>
         </div>
       </StyledLinkDiv>
-      <Outlet />
+      <Suspense
+        fallback={
+          <div
+            style={{
+              display: 'flex',
+              width: '100vw',
+              height: '100vh',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <FallingLines
+              color="#929292"
+              width="100"
+              visible={true}
+              ariaLabel="falling-lines-loading"
+            />
+          </div>
+        }
+      >
+        <Outlet />
+      </Suspense>
     </StyledWrapper>
   );
 };
@@ -141,6 +170,11 @@ const StyledWrapper = styled.div`
       box-shadow: 0px 0px 0px 0px black;
       background-color: white;
       scale: 0.9;
+    }
+    &:active {
+      scale: 0.8;
+      box-shadow: inset -1px -1px 5px 1px black;
+      background-color: white;
     }
   }
 `;

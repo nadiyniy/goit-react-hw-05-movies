@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { FallingLines } from 'react-loader-spinner';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { fetchMovies } from 'services/api';
 import styled from 'styled-components';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
+  const [error, setError] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
-    fetchMovies().then(res => {
-      setMovies(res.results);
-      console.log(res);
-    });
+    fetchMovies()
+      .then(res => {
+        setMovies(res.results);
+      })
+      .catch(err => {
+        setError(err.message);
+      });
   }, []);
 
   return (
@@ -21,7 +26,7 @@ const Home = () => {
         <ol>
           {movies?.map(movie => (
             <li key={movie.id}>
-              <Link to={`/movies/${movie?.id}`}>
+              <Link state={{ from: location }} to={`/movies/${movie?.id}`}>
                 {movie.original_title ?? movie.title ?? movie.name}
               </Link>
             </li>

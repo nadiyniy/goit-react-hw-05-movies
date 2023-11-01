@@ -1,11 +1,13 @@
-import Movies from 'page/Movies';
-import Home from 'page/Home';
-import { Route, Routes } from 'react-router-dom';
-import NotFound from 'page/NotFound';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './layout/Layout';
-import Movie from './movie/Movie';
-import Cast from './cast/Cast';
-import Reviews from './reviews/Reviews';
+import { lazy } from 'react';
+
+const Movie = lazy(() => import('./movie/Movie'));
+const Home = lazy(() => import('page/Home'));
+const Movies = lazy(() => import('page/Movies'));
+const NotFound = lazy(() => import('page/NotFound'));
+const Cast = lazy(() => import('./cast/Cast'));
+const Reviews = lazy(() => import('./reviews/Reviews'));
 
 export const App = () => {
   return (
@@ -21,13 +23,14 @@ export const App = () => {
     >
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-
         <Route path="movies/:id" element={<Movie />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
+        x
         <Route path="movies" element={<Movies />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );
