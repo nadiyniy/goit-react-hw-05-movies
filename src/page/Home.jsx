@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
-  const [error, setError] = useState('');
+  const [setError] = useState('');
   const location = useLocation();
 
   useEffect(() => {

@@ -3,18 +3,15 @@ import { FallingLines } from 'react-loader-spinner';
 import {
   Link,
   NavLink,
-  Navigate,
   Outlet,
   useLocation,
   useNavigate,
-  // useNavigate,
   useParams,
 } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import styled from 'styled-components';
 
 const Movie = () => {
-  // const navigate = useNavigate();
   const location = useLocation();
   const goBackRef = useRef(location.state?.from || '/');
 
@@ -60,8 +57,8 @@ const Movie = () => {
       <Link to={goBackRef.current}>Go back</Link>
       <StyledContent>
         <img
-          width={300}
-          height={500}
+          width={200}
+          height={350}
           src={
             movie?.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie?.poster_path}`
@@ -186,7 +183,7 @@ const StyledContent = styled.div`
   & img {
     box-shadow: 2px 2px 5px 1px black;
     width: auto;
-    height: 500px;
+    height: 350px;
   }
   & div {
     /* flex: 1; */
