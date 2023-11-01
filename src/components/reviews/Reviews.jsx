@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FallingLines } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/api';
 import styled from 'styled-components';
