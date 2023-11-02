@@ -1,7 +1,6 @@
 import Loader from 'components/helpers/Loader';
 import NavBar from 'components/navBar/NavBar';
 import React, { Suspense } from 'react';
-import { FallingLines } from 'react-loader-spinner';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
