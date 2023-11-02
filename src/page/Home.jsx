@@ -1,8 +1,8 @@
+import Loader from 'components/helpers/Loader';
 import React, { useEffect, useState } from 'react';
-import { FallingLines } from 'react-loader-spinner';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchMovies } from 'services/api';
-import styled from 'styled-components';
+import { StyledWrapper } from './Movies.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <StyledWrapper>
-      <StyledTitle>Trending today:</StyledTitle>
+      <h1>Trending today:</h1>
       {movies ? (
         <ol>
           {movies?.map(movie => (
@@ -33,52 +33,10 @@ const Home = () => {
           ))}
         </ol>
       ) : (
-        <div
-          style={{
-            display: 'flex',
-            width: '100vw',
-            height: '100vh',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <FallingLines
-            color="#929292"
-            width="100"
-            visible={true}
-            ariaLabel="falling-lines-loading"
-          />
-        </div>
+        <Loader />
       )}
     </StyledWrapper>
   );
 };
-const StyledTitle = styled.h1`
-  /* margin-left: 20px; */
-`;
-
-const StyledWrapper = styled.div`
-  padding: 15px 20px;
-  & ol {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0;
-    padding: 0;
-    & li {
-      & a {
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        transition: all 0.2s ease;
-        &:hover,
-        &:focus {
-          color: rgba(0, 0, 255, 0.7);
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-`;
 
 export default Home;

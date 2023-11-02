@@ -1,5 +1,5 @@
+import Loader from 'components/helpers/Loader';
 import React, { Suspense, useEffect, useRef, useState } from 'react';
-import { FallingLines } from 'react-loader-spinner';
 import {
   Link,
   NavLink,
@@ -9,7 +9,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
-import styled from 'styled-components';
+import { StyledContent, StyledLinkDiv, StyledWrapper } from './Movie.styled';
 
 const Movie = () => {
   const location = useLocation();
@@ -31,24 +31,7 @@ const Movie = () => {
   }, [id, navigate]);
 
   if (!movie) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          width: '100vw',
-          height: '100vh',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <FallingLines
-          color="#929292"
-          width="100"
-          visible={true}
-          ariaLabel="falling-lines-loading"
-        />
-      </div>
-    );
+    return <Loader />;
   }
   if (error) {
   }
@@ -89,109 +72,11 @@ const Movie = () => {
           <NavLink to="reviews">Reviews</NavLink>
         </div>
       </StyledLinkDiv>
-      <Suspense
-        fallback={
-          <div
-            style={{
-              display: 'flex',
-              width: '100vw',
-              height: '100vh',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <FallingLines
-              color="#929292"
-              width="100"
-              visible={true}
-              ariaLabel="falling-lines-loading"
-            />
-          </div>
-        }
-      >
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </StyledWrapper>
   );
 };
-const StyledLinkDiv = styled.div`
-  padding: 15px;
-  padding-bottom: 20px;
-
-  & div {
-    display: flex;
-    gap: 20px;
-    > a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      &:focus,
-      &:hover {
-        color: rgba(0, 0, 255, 0.5);
-      }
-
-      &.active {
-        color: rgba(0, 0, 255);
-        position: relative;
-        transition: all 0.3s ease;
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -25%;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          border-radius: 2px;
-          background-color: blue;
-        }
-      }
-    }
-  }
-`;
-const StyledWrapper = styled.div`
-  padding: 15px 20px;
-  > a {
-    display: inline-flex;
-    color: black;
-    padding: 5px 15px;
-    text-decoration: none;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px 1px black;
-    background-color: lightgray;
-    transition: all 0.2s ease;
-    &:focus,
-    &:hover {
-      box-shadow: 0px 0px 0px 0px black;
-      background-color: white;
-      scale: 0.9;
-    }
-    &:active {
-      scale: 0.8;
-      box-shadow: inset -1px -1px 5px 1px black;
-      background-color: white;
-    }
-  }
-`;
-const StyledContent = styled.div`
-  display: flex;
-  gap: 30px;
-  border-bottom: 2px solid gray;
-  padding: 20px 0;
-  & img {
-    box-shadow: 2px 2px 5px 1px black;
-    width: auto;
-    height: 350px;
-  }
-  & div {
-    /* flex: 1; */
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-`;
 
 export default Movie;

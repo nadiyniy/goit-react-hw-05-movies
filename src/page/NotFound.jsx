@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import { StyledContainer } from './NotFound.styled';
 
 const NotFound = () => {
   const location = useLocation();
@@ -19,25 +19,5 @@ const NotFound = () => {
     </StyledContainer>
   );
 };
-
-const StyledContainer = styled.div`
-  padding-top: 50px;
-  & img {
-    width: 500px;
-  }
-  & p {
-    margin-left: 250px;
-    & a {
-      font-size: 30px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: black;
-      transition: all 0.3s ease;
-      &:hover {
-        color: blue;
-      }
-    }
-  }
-`;
 
 export default NotFound;

@@ -11,16 +11,7 @@ const Reviews = lazy(() => import('./reviews/Reviews'));
 
 export const App = () => {
   return (
-    <Routes
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="movies/:id" element={<Movie />}>
