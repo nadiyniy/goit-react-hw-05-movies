@@ -23,10 +23,20 @@ const Movies = () => {
   const handleSetQuery = () => {
     setSearch(query ? { query } : {});
   };
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      handleSetQuery();
+    }
+    console.log(e.key);
+  };
 
   return (
     <StyledWrapper>
-      <input value={query} onChange={handleOnChange} />
+      <input
+        onKeyDown={handleKeyPress}
+        value={query}
+        onChange={handleOnChange}
+      />
       <button onClick={handleSetQuery}>Search</button>
       <ul>
         {movies.map(movie => (
