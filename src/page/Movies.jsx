@@ -27,7 +27,6 @@ const Movies = () => {
     if (e.key === 'Enter') {
       handleSetQuery();
     }
-    console.log(e.key);
   };
 
   return (

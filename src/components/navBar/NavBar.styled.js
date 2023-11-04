@@ -7,34 +7,35 @@ export const StyleWrapper = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
-  background-color: rgb(211, 211, 211);
-  padding: 15px 20px;
+  background-color: rgba(180, 180, 180, 0.4);
   border-bottom: 2px solid gray;
   box-shadow: 0 0 10px 2px black;
+  padding-left: 20px;
 `;
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: black;
   font-weight: bold;
   transition: all 0.3s ease;
+  display: inline-block;
+  padding: 15px 0;
   &:focus,
   &:hover {
-    color: rgba(0, 0, 255, 0.5);
+    color: white;
   }
-
   &.active {
-    color: rgba(0, 0, 255);
+    color: white;
     position: relative;
     transition: all 0.3s ease;
     &::after {
       content: '';
       position: absolute;
-      bottom: -50%;
+      bottom: 0%;
       left: 0;
       width: 100%;
       height: 3px;
       border-radius: 2px;
-      background-color: blue;
+      background-color: white;
     }
   }
 `;

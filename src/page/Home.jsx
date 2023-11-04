@@ -2,7 +2,7 @@ import Loader from 'components/helpers/Loader';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchMovies } from 'services/api';
-import { StyledWrapper } from './Movies.styled';
+import { StyledWrapper } from './Home.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
@@ -13,6 +13,7 @@ const Home = () => {
     fetchMovies()
       .then(res => {
         setMovies(res.results);
+        console.log(res.results);
       })
       .catch(err => {
         setError(err.message);

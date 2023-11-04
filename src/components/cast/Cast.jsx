@@ -31,8 +31,10 @@ const Cast = () => {
             }
             alt={actor.name}
           />
-          <h3>{actor.name}</h3>
-          <p>{actor.character}</p>
+          <div>
+            <h3>{actor.name}</h3>
+            <p>{actor.character}</p>
+          </div>
         </li>
       ))}
     </StyledList>
