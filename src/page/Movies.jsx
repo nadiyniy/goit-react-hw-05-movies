@@ -31,12 +31,14 @@ const Movies = () => {
 
   return (
     <StyledWrapper>
-      <input
-        onKeyDown={handleKeyPress}
-        value={query}
-        onChange={handleOnChange}
-      />
-      <button onClick={handleSetQuery}>Search</button>
+      <div>
+        <input
+          onKeyDown={handleKeyPress}
+          value={query}
+          onChange={handleOnChange}
+        />
+        <button onClick={handleSetQuery}>Search</button>
+      </div>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>

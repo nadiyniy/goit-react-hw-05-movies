@@ -46,7 +46,6 @@ export const StyledWrapper = styled.div`
   border-radius: 10px;
   width: 100%;
   margin: 0 auto;
-  position: relative;
   > a {
     transition: all 0.3s ease;
     display: inline-flex;

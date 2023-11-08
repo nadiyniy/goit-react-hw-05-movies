@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  padding: 15px 20px;
-  & input {
-    background-color: rgba(180, 180, 180, 0.4);
+  padding: 10px;
+  transition: all 0.3s ease;
+  max-width: 700px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  input {
+    background-color: rgba(255, 255, 255, 0.4);
 
-    width: 300px;
+    /* width: 300px; */
     padding: 5px 15px;
     border: 1px solid black;
     border-radius: 10px;
@@ -13,8 +19,8 @@ export const StyledWrapper = styled.div`
     border-bottom-right-radius: 0;
     margin-bottom: 10px;
   }
-  & button {
-    background-color: rgba(180, 180, 180, 0.4);
+  button {
+    background-color: rgba(255, 255, 255, 0.4);
 
     padding: 5px 15px;
     cursor: pointer;
@@ -26,26 +32,22 @@ export const StyledWrapper = styled.div`
       outline: -webkit-focus-ring-color auto 1px;
     }
   }
-  & ul {
+  ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
     gap: 5px;
-    & li {
-      & a {
+    li {
+      a {
+        font-size: 16px;
+        color: black;
         text-decoration: none;
-        color: rgb(0, 0, 0);
-        background-color: rgba(180, 180, 180, 0.4);
-        padding: 5px 10px;
-        border-radius: 10px;
-        transition: all 0.2s ease;
         &:hover,
         &:focus {
-          color: black;
-          text-decoration: underline;
-          outline: -webkit-focus-ring-color auto 1px;
+          color: white;
+          text-shadow: 0px 0px 5px white;
         }
       }
     }
