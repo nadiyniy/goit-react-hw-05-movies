@@ -34,10 +34,12 @@ const Reviews = () => {
   return (
     <StyledList>
       {reviews.results.map(user => (
-        <li key={user.id}>
+        <div key={user.id}>
           <h3>Author: {user.author}</h3>
-          <p>{user.content}</p>
-        </li>
+          <li>
+            <p>{user.content}</p>
+          </li>
+        </div>
       ))}
     </StyledList>
   );

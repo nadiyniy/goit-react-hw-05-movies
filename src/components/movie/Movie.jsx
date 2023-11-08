@@ -51,22 +51,21 @@ const Movie = () => {
         />
         <div>
           <h2>
-            {movie.title}
-            <br />({movie?.release_date})
+            {movie.title} ({movie?.release_date})
           </h2>
           <p>User score: {(movie.vote_average * 10).toFixed(2)}%</p>
-          <h3>Overview</h3>
+          <h3>Overview:</h3>
           <p>{movie.overview}</p>
-          <h4>Genres</h4>
+          <h4>Genres:</h4>
           <p>
             {movie.genres.map(genre => (
-              <span key={genre.id}>{genre.name}</span>
+              <span key={genre.id}>{genre.name} </span>
             ))}
           </p>
         </div>
       </StyledContent>
       <StyledLinkDiv>
-        <p>Additional information:</p>
+        <h4>Additional information:</h4>
         <div>
           <NavLink to="cast">Cast</NavLink>
           <NavLink to="reviews">Reviews</NavLink>

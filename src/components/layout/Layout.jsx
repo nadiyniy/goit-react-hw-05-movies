@@ -15,7 +15,4 @@ export const Layout = () => {
   );
 };
 
-const StyleMain = styled.main`
-  width: 100%;
-  height: 100%;
-`;
+const StyleMain = styled.main``;

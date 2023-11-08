@@ -1,85 +1,89 @@
 import styled from 'styled-components';
 
 export const StyledLinkDiv = styled.div`
-  margin-top: 10px;
-  background-color: rgba(180, 180, 180, 0.4);
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  & div {
+  div {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
     > a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      &:focus,
-      &:hover {
-        color: white;
-      }
-      &.active {
-        color: white;
-        position: relative;
-        transition: all 0.3s ease;
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -25%;
-          left: 0;
-          width: 100%;
-          height: 3px;
-          border-radius: 2px;
-          background-color: white;
-        }
-      }
+      display: inline-flex;
+  padding: 10px 0;
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  font-size: 20px;
+
+  &:focus,
+  &:hover {
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0px 0px 5px white;
+  }
+  &.active {
+    color: white;
+    text-shadow: 0px 0px 5px white;
+    &::after {
+      content: '';
+      box-shadow: 0px 0px 5px 1px white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background-color: white;
     }
+  }
   }
 `;
 
 export const StyledWrapper = styled.div`
-  padding: 15px 20px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  max-width: 700px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
   > a {
+    transition: all 0.3s ease;
     display: inline-flex;
     color: black;
+    font-size: 16px;
     padding: 5px 15px;
-    text-decoration: none;
-    margin-bottom: 20px;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 2px 2px 5px 1px black;
-    background-color: rgba(180, 180, 180, 0.4);
-    transition: all 0.2s ease;
+    margin-bottom: 10px;
+    z-index: 1;
+    cursor: pointer;
+    text-decoration: none;
     &:focus,
     &:hover {
-      box-shadow: 0px 0px 0px 0px black;
-      scale: 0.9;
+      color: white;
+      text-shadow: 0px 0px 5px white;
     }
     &:active {
-      scale: 0.8;
-      box-shadow: inset -1px -1px 5px 1px black;
-      background-color: rgba(0, 0, 0, 0.3);
     }
   }
 `;
 
 export const StyledContent = styled.div`
-  display: flex;
-  gap: 30px;
-  border-bottom: 2px solid gray;
-  & img {
-    box-shadow: 2px 2px 5px 1px black;
-    width: auto;
-    height: 350px;
+  & {
+    img {
+      display: block;
+
+      margin: 0 auto;
+      margin-top: 10px;
+      box-shadow: 0px 0px 5px 2px white;
+    }
   }
-  & div {
-    margin-bottom: 10px;
-    background-color: rgba(180, 180, 180, 0.4);
-    padding: 5px;
-    border-radius: 10px;
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  div {
+    margin-top: 10px;
+    h2 {
+      font-size: 20px;
+      border-bottom: 2px solid black;
+    }
   }
 `;

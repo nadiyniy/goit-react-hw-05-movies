@@ -13,7 +13,7 @@ const Loader = () => {
       }}
     >
       <FallingLines
-        color="#929292"
+        color="#ffffff"
         width="100"
         visible={true}
         ariaLabel="falling-lines-loading"
