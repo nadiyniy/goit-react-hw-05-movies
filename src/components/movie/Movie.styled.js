@@ -6,7 +6,6 @@ export const StyledLinkDiv = styled.div`
   padding: 10px 20px;
   border-radius: 10px;
   margin-bottom: 15px;
-
   & div {
     display: flex;
     gap: 20px;
@@ -19,7 +18,6 @@ export const StyledLinkDiv = styled.div`
       &:hover {
         color: white;
       }
-
       &.active {
         color: white;
         position: relative;
@@ -38,6 +36,7 @@ export const StyledLinkDiv = styled.div`
     }
   }
 `;
+
 export const StyledWrapper = styled.div`
   padding: 15px 20px;
   > a {
@@ -63,11 +62,11 @@ export const StyledWrapper = styled.div`
     }
   }
 `;
+
 export const StyledContent = styled.div`
   display: flex;
   gap: 30px;
   border-bottom: 2px solid gray;
-
   & img {
     box-shadow: 2px 2px 5px 1px black;
     width: auto;
