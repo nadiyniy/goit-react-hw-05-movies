@@ -12,24 +12,33 @@ export const StyledList = styled.ul`
     width: 100%;
     overflow: hidden;
     margin-bottom: 15px;
-    /* position: relative; */
-
-    /* max-height: ${({ expanded }) => (expanded ? '100%' : '200px')}; */
 
     h3 {
       border-bottom: 2px solid black;
       margin-bottom: 10px;
+      font-size: 16px;
     }
     p {
       padding: 10px;
       margin: 0 auto;
       border: 1px solid;
       border-radius: 10px;
+      font-size: 14px;
 
       button {
-        /* position: absolute;
-        right: 0;
-        bottom: 0; */
+        transition: all 0.3s ease;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        margin-left: auto;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }

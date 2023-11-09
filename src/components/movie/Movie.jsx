@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import { StyledContent, StyledLinkDiv, StyledWrapper } from './Movie.styled';
+import { BiLeftArrow } from 'react-icons/bi';
 
 const Movie = () => {
   const location = useLocation();
@@ -37,7 +38,10 @@ const Movie = () => {
   }
   return (
     <StyledWrapper>
-      <Link to={goBackRef.current}>Go back</Link>
+      <Link to={goBackRef.current}>
+        <BiLeftArrow />
+        Go back
+      </Link>
       <StyledContent>
         <img
           width={200}

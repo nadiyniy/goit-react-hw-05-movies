@@ -13,7 +13,7 @@ margin-top: 10px;
     gap: 10px;
     margin-bottom: 10px;
     > a {
-      display: inline-flex;
+  display: inline-flex;
   padding: 10px 0;
   color: rgba(0, 0, 0, 1);
   text-decoration: none;
@@ -59,20 +59,23 @@ export const StyledWrapper = styled.div`
     transition: all 0.3s ease;
     display: inline-flex;
     color: black;
-    font-size: 16px;
-    padding: 5px 15px;
+    font-size: 14px;
+    padding: 3px 10px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
-    z-index: 1;
     cursor: pointer;
     text-decoration: none;
+    align-items: center;
     &:focus,
     &:hover {
       color: white;
       text-shadow: 0px 0px 5px white;
     }
-    &:active {
+    &:focus svg,
+    &:hover svg {
+      /* box-shadow: 0px 0px 5px 1px white; */
+      filter: drop-shadow(0px 0px 5px white);
     }
   }
 `;
