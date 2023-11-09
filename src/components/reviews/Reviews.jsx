@@ -2,7 +2,7 @@ import Loader from 'components/helpers/Loader';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/api';
-import { StyledList } from './Reviews.styled';
+import { Btn, StyledList } from './Reviews.styled';
 import { AiOutlineArrowUp } from 'react-icons/ai';
 import styled from 'styled-components';
 
@@ -53,10 +53,13 @@ const Reviews = () => {
               ? `${user.content.slice(0, 300)}`
               : user.content}
             {user.content.length > 300 ? (
-              <button onClick={() => toggleExpand(index)}>
+              <Btn
+                $knopka={expandedReviews[index]}
+                onClick={() => toggleExpand(index)}
+              >
                 {expandedReviews[index] ? 'Hide' : '. . . read more'}
                 <Styled $rotated={expandedReviews[index]} />
-              </button>
+              </Btn>
             ) : null}
           </p>
         </li>
@@ -66,8 +69,8 @@ const Reviews = () => {
 };
 const Styled = styled(AiOutlineArrowUp)`
   transition: all 0.3s ease;
-  transform: ${({ rotated }) =>
-    !rotated ? 'rotate(-180deg)' : 'rotate(0deg)'};
+  transform: ${({ $rotated }) =>
+    !$rotated ? 'rotate(-180deg)' : 'rotate(0deg)'};
 `;
 
 export default Reviews;
