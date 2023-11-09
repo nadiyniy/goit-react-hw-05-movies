@@ -8,28 +8,39 @@ export const StyledWrapper = styled.div`
   border-radius: 10px;
   width: 100%;
   margin: 0 auto;
-  input {
-    background-color: rgba(255, 255, 255, 0.4);
-
-    /* width: 300px; */
-    padding: 5px 15px;
-    border: 1px solid black;
-    border-radius: 10px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-bottom: 10px;
+  @media screen and (min-width: 768.98px) {
+    max-width: 1000px;
   }
-  button {
-    background-color: rgba(255, 255, 255, 0.4);
+  div {
+    display: flex;
+    margin-bottom: 10px;
+    position: relative;
 
-    padding: 5px 15px;
-    cursor: pointer;
-    border: 1px solid black;
-    border-radius: 10px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    &:hover {
-      outline: -webkit-focus-ring-color auto 1px;
+    input {
+      background-color: rgba(255, 255, 255, 0.4);
+      width: 100%;
+      padding: 5px 10px 5px 40px;
+      border: 1px solid black;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    button {
+      background-color: transparent;
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.6s ease;
+
+      &:hover svg {
+        filter: drop-shadow(0px 0px 2px white);
+        transform: rotate(10deg);
+      }
     }
   }
   ul {

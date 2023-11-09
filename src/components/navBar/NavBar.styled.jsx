@@ -11,6 +11,13 @@ export const StyleWrapper = styled.ul`
   margin-bottom: 10px;
   align-items: center;
   justify-content: center;
+  li {
+    &:focus svg,
+    &:hover svg {
+      filter: drop-shadow(0px 0px 5px white);
+      transform: rotate(10deg);
+    }
+  }
 `;
 export const StyledLink = styled(NavLink)`
   display: inline-flex;

@@ -7,8 +7,9 @@ import { StyledList } from './Reviews.styled';
 const Reviews = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
-
+  // const [expanded, setExpanded] = useState(false);
   const [reviews, setReviews] = useState(null);
+
   useEffect(() => {
     const get = async () => {
       setIsLoading(true);
@@ -23,6 +24,10 @@ const Reviews = () => {
     get();
   }, [id]);
 
+  // const toggleExpand = () => {
+  //   setExpanded(!expanded);
+  // };
+
   if (isLoading) {
     return <Loader />;
   }
@@ -32,14 +37,21 @@ const Reviews = () => {
   }
 
   return (
-    <StyledList>
+    <StyledList
+    // expanded={expanded}
+    >
       {reviews.results.map(user => (
-        <div key={user.id}>
+        <li key={user.id}>
           <h3>Author: {user.author}</h3>
-          <li>
-            <p>{user.content}</p>
-          </li>
-        </div>
+          <p>
+            {user.content}
+            {/* {user.content.length > 100 ? (
+              <button onClick={toggleExpand}>
+                {expanded ? 'Hide' : 'Read More'}
+              </button>
+            ) : null} */}
+          </p>
+        </li>
       ))}
     </StyledList>
   );

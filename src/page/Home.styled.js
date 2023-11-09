@@ -8,6 +8,9 @@ export const StyledWrapper = styled.div`
   border-radius: 10px;
   width: 100%;
   margin: 0 auto;
+  @media screen and (min-width: 768.98px) {
+    max-width: 1000px;
+  }
 
   h1 {
     font-size: 20px;

@@ -24,7 +24,7 @@ const NavBar = () => {
   );
 };
 const Styled = styled(BiSolidCameraMovie)`
-  filter: drop-shadow(0px 0px 5px white);
+  transition: all 0.3s ease;
 `;
 
 export default NavBar;

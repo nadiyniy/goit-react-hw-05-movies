@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { fetchMovieByQuery } from 'services/api';
 import { StyledWrapper } from './Movies.styled';
+import { BiSearchAlt2 } from 'react-icons/bi';
+import styled from 'styled-components';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
@@ -37,7 +39,9 @@ const Movies = () => {
           value={query}
           onChange={handleOnChange}
         />
-        <button onClick={handleSetQuery}>Search</button>
+        <button onClick={handleSetQuery}>
+          <Styled size={20} color="white" />
+        </button>
       </div>
       <ul>
         {movies.map(movie => (
@@ -51,5 +55,8 @@ const Movies = () => {
     </StyledWrapper>
   );
 };
+const Styled = styled(BiSearchAlt2)`
+  transition: all 0.3s ease;
+`;
 
 export default Movies;

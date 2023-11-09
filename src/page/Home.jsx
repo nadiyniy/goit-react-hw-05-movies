@@ -13,7 +13,6 @@ const Home = () => {
     fetchMovies()
       .then(res => {
         setMovies(res.results);
-        console.log(res.results);
       })
       .catch(err => {
         setError(err.message);
