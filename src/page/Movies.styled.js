@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
@@ -11,14 +12,17 @@ export const StyledWrapper = styled.div`
   @media screen and (min-width: 768.98px) {
     max-width: 1000px;
   }
+  position: relative;
   div {
     display: flex;
+    display: block;
     margin-bottom: 10px;
     position: relative;
 
     input {
       background-color: rgba(255, 255, 255, 0.4);
       width: 100%;
+      font-size: 20px;
       padding: 5px 10px 5px 40px;
       border: 1px solid black;
       border-radius: 10px;
@@ -61,6 +65,29 @@ export const StyledWrapper = styled.div`
           text-shadow: 0px 0px 5px white;
         }
       }
+    }
+  }
+`;
+
+export const LinkPoster = styled(Link)`
+  @media screen and (min-width: 768px) {
+    &:hover::after,
+    &:focus::after {
+      content: '';
+      background: transparent;
+      background-image: url(${props =>
+        props.cover ? `https://image.tmdb.org/t/p/w500${props.cover}` : null});
+      background-size: cover;
+      background-position: center;
+      width: 340px;
+      height: 500px;
+      display: block;
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+      z-index: 1;
     }
   }
 `;

@@ -1,8 +1,8 @@
 import Loader from 'components/helpers/Loader';
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetchMovies } from 'services/api';
-import { StyledWrapper } from './Home.styled';
+import { LinkPoster, StyledWrapper } from './Home.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState(null);
@@ -26,9 +26,14 @@ const Home = () => {
         <ol>
           {movies?.map(movie => (
             <li key={movie.id}>
-              <Link state={{ from: location }} to={`/movies/${movie?.id}`}>
+              <LinkPoster
+                cover={movie.poster_path}
+                state={{ from: location }}
+                to={`/movies/${movie?.id}`}
+              >
                 {movie.original_title ?? movie.title ?? movie.name}
-              </Link>
+                {movie.title}
+              </LinkPoster>
             </li>
           ))}
         </ol>

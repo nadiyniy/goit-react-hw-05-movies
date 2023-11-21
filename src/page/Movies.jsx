@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { fetchMovieByQuery } from 'services/api';
-import { StyledWrapper } from './Movies.styled';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import styled from 'styled-components';
+
+import { fetchMovieByQuery } from 'services/api';
+import { LinkPoster, StyledWrapper } from './Movies.styled';
 
 const Movies = () => {
   const [query, setQuery] = useState('');
@@ -35,6 +36,7 @@ const Movies = () => {
     <StyledWrapper>
       <div>
         <input
+          placeholder="Let's search for a movie"
           onKeyDown={handleKeyPress}
           value={query}
           onChange={handleOnChange}
@@ -46,9 +48,13 @@ const Movies = () => {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link state={{ from: location }} to={`/movies/${movie?.id}`}>
+            <LinkPoster
+              cover={movie.poster_path}
+              state={{ from: location }}
+              to={`/movies/${movie?.id}`}
+            >
               {movie.title}
-            </Link>
+            </LinkPoster>
           </li>
         ))}
       </ul>
