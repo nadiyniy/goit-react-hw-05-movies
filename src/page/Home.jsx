@@ -32,7 +32,6 @@ const Home = () => {
                 to={`/movies/${movie?.id}`}
               >
                 {movie.original_title ?? movie.title ?? movie.name}
-                {movie.title}
               </LinkPoster>
             </li>
           ))}

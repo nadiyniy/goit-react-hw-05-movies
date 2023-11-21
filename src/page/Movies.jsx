@@ -53,7 +53,7 @@ const Movies = () => {
               state={{ from: location }}
               to={`/movies/${movie?.id}`}
             >
-              {movie.title}
+              {movie.original_title ?? movie.title ?? movie.name}
             </LinkPoster>
           </li>
         ))}
